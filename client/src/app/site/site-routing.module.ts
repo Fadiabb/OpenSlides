@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SiteComponent } from './site.component';
 
 import { AuthGuard } from '../core/services/auth-guard.service';
+import { FullSearchComponent } from './full-search/full-search.component';
 
 /**
  * Routung to all OpenSlides apps
@@ -46,7 +47,12 @@ const routes: Routes = [
             {
                 path: 'tags',
                 loadChildren: './tags/tag.module#TagModule'
+            },
+            {
+                path: 'search/:str',
+                component: FullSearchComponent
             }
+
         ],
         canActivateChild: [AuthGuard]
     }

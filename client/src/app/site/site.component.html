@@ -57,8 +57,17 @@
             <a [@navItemAnim] *osPerms="'core.can_see_projector'" mat-list-item routerLink='/projector'
                 routerLinkActive='active' (click)='toggleSideNav()'>
                 <mat-icon>videocam</mat-icon>
-                <span translate>Projector</span>
+                <span translate>Projektor</span>
             </a>
+            <form>
+                <mat-form-field>
+                    <input #searchQuery matInput placeholder="{{'Search' | translate}}">
+                    <button routerLink="/search/{{searchQuery.value}}" mat-icon-button matSuffix >
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+            </form>
+
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

@@ -1,0 +1,85 @@
+<os-head-bar [nav]="false" [backButton]=true>
+
+    <!-- Title -->
+    <div class="title-slot">
+        <h2 translate>Search results</h2>
+    </div>
+    <div class="menu-slot">
+        <button type="button" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+    </div>
+</os-head-bar>
+
+
+
+
+<form class="search-feld">
+    <mat-form-field>
+        <input matInput value={{searchQuery}} #searchBox (keyup)="quickSearch(searchBox.value) ">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</form>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-checkbox class="check-box" [(ngModel)]="userCheck"> users </mat-checkbox>
+    </button>
+    <button mat-menu-item>
+        <mat-checkbox class="check-box" [(ngModel)]="motionCheck"> Motions </mat-checkbox>
+    </button>
+    <button mat-menu-item>
+        <mat-checkbox class="check-box" [(ngModel)]="agendaCheck"> Agneda </mat-checkbox>
+    </button>
+    <button mat-menu-item>
+        <mat-checkbox class="check-box" [(ngModel)]="assigmentCheck"> Election </mat-checkbox>
+    </button>
+</mat-menu>
+
+<mat-list *ngIf="user.length && userCheck">
+    <h2 mat-subheader> Users </h2>
+    <mat-nav-list>
+        <a mat-list-item *ngFor="let myUser of user">
+            <h5 mat-line routerLink="{{myUser.getDetailStateURL()}}">
+                    <mat-card> {{ myUser }}</mat-card>
+            </h5>
+        </a>
+        <mat-divider></mat-divider>
+    </mat-nav-list>
+</mat-list>
+
+<mat-list *ngIf="motion.length && motionCheck">
+    <h2 mat-subheader>motions</h2>
+    <mat-nav-list>
+        <a mat-list-item *ngFor="let myMotion of motion">
+            <h5 mat-line routerLink="{{myMotion.getDetailStateURL()}}">
+               <mat-card> {{ myMotion }}</mat-card>
+            </h5>
+        </a>
+        <mat-divider></mat-divider>
+    </mat-nav-list>
+</mat-list>
+
+<mat-list *ngIf="agenda.length && agendaCheck">
+    <h2 mat-subheader>Agenda</h2>
+    <mat-nav-list>
+        <a mat-list-item *ngFor="let myAgenda of agenda">
+            <h5 mat-line routerLink="/agenda">
+                <mat-card> {{ myAgenda }}</mat-card>
+            </h5>
+        </a>
+        <mat-divider></mat-divider>
+    </mat-nav-list>
+</mat-list>
+
+<mat-list *ngIf="assigment.length">
+    <h2 mat-subheader>Assigment</h2>
+    <mat-nav-list>
+        <a mat-list-item *ngFor="let myAssigment of assigment">
+            <h5>
+                    <mat-card> {{ myAssigment }}</mat-card>
+            </h5>
+        </a>
+        <mat-divider></mat-divider>
+    </mat-nav-list>
+</mat-list>

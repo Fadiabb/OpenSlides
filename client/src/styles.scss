@@ -4,10 +4,12 @@
 /** Import brand theme and (new) component themes */
 @import './assets/styles/openslides-theme';
 @import './app/site/site.component.scss-theme';
+@import './app/site/motions/components/motion-detail/motion-detail.component.scss-theme.scss';
 @import '../node_modules/roboto-fontface/css/roboto/roboto-fontface.css';
 @import '../node_modules/roboto-fontface/css/roboto-condensed/roboto-condensed-fontface.css';
 @mixin openslides-components-theme($theme) {
     @include os-site-theme($theme);
+    @include os-motion-detail-theme($theme);
     /** More components are added here */
 }
 

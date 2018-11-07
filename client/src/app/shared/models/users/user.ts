@@ -88,4 +88,7 @@ export class User extends ProjectableBaseModel {
     public getListViewTitle(): string {
         return this.short_name;
     }
+    public getDetailStateURL(): string {
+        return `/users/${this.id}`;
+    }
 }

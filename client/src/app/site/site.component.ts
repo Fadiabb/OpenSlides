@@ -10,6 +10,8 @@ import { pageTransition, navItemAnim } from 'app/shared/animations';
 import { MatDialog, MatSidenav } from '@angular/material';
 import { ViewportService } from '../core/services/viewport.service';
 import { MainMenuService } from '../core/services/main-menu.service';
+import { User } from 'app/shared/models/users/user';
+import { DataStoreService } from 'app/core/services/data-store.service';
 
 @Component({
     selector: 'os-site',
@@ -57,6 +59,7 @@ export class SiteComponent extends BaseComponent implements OnInit {
     public constructor(
         private authService: AuthService,
         private router: Router,
+        private DS: DataStoreService,
         public operator: OperatorService,
         public vp: ViewportService,
         public translate: TranslateService,

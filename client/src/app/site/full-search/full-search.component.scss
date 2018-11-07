@@ -1,0 +1,18 @@
+.search-feld {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-feld > * {
+    width: 80%;
+}
+
+.check-box {
+    margin: 10px;
+}
+.button-x {
+    position: static;
+    right: 10%;
+
+    color: blue;
+}
